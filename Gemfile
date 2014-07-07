@@ -15,6 +15,7 @@ gem 'pusher'
 gem 'aws-sdk'
 gem 'bourbon'
 gem 'neat'
+gem 'rails_12factor', group: :production
 
 group :doc do
   gem 'sdoc', require: false
