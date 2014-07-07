@@ -1,0 +1,76 @@
+$main-color: #FF86B2;
+
+#nav {
+  @include clearfix;
+  // @include outer-container;
+  position: relative;
+  z-index: 9999;
+  width: 100%;
+
+  nav {
+    #logo {
+      font-family: 'Satisfy', cursive;
+      font-size: 3.5em;
+      font-weight: 800;
+      margin: 10px auto 0;
+      padding-top: .4em;
+      color: $main-color;
+      position: relative;
+      display: block;
+      text-align: center;
+      text-shadow: .2px .2px .2px #000;
+    }
+
+    #logo-subheader {
+      font-family: 'Playfair Display', serif;
+      font-size: 1em;
+      font-weight: 800;
+      margin: 0 auto 0;
+      padding-top: .4em;
+      color: gray;
+      position: relative;
+      display: block;
+      text-align: center;
+      text-shadow: .2px .2px .2px #000;
+    }
+
+    #nav-bar {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      height: 30px;
+      border-bottom: 1px solid #e1e3ea;
+      border-top: 1px solid #e1e3ea;
+
+      ul li {
+        a {
+          font-weight: 400;
+          color: $main-color;
+          font-size: 14px;
+          border-left: 1px solid #e1e3ea;
+          display: block;
+          float: left;
+          padding: 5px 10px;
+          line-height: 20px;
+          height: 30px;
+
+          &:first-child {
+            border-left: 0px;
+          }
+
+          &:last-child {
+            border-right: 1px solid #e1e3ea;
+          }
+
+          &:hover {
+            color: white;
+            background-color: $main-color
+          }
+        }
+      }
+    }
+  }
+}

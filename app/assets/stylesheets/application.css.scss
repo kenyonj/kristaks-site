@@ -13,4 +13,12 @@
 @import "bourbon";
 @import "bitters/bitters";
 @import "neat";
+@import "nav";
 
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+
+body{
+  margin:0;
+  padding:0;
+}
