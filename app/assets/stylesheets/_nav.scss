@@ -1,19 +1,80 @@
 $main-color: #FF86B2;
+$gradient-color-top: #56BAEC;
+$gradient-color-bottom: #FFAEAE;
+$gradient-color-left: #B0E57C;
+$gradient-color-right: #FFEC94;
 
 #nav {
+  .image-gradient {
+    $image-gradient-color-top: $gradient-color-top;
+    $transparency-top: .6;
+    $image-gradient-color-bottom: $gradient-color-bottom;
+    $transparency-bottom: .6;
+    $vertical-angle: 80deg;
+
+    $image-gradient-color-left: $gradient-color-left;
+    $transparency-left: .9;
+    $image-gradient-color-right: $gradient-color-right;
+    $transparency-right: .8;
+    $horizontal-angle: 180deg;
+
+    background: url(/kristaks-front.png);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    padding: 12em 0 12em 0;
+    position: relative;
+    width: 100%;
+    display: table;
+    // margin-bottom: $base-line-height;
+
+    .copy {
+      position: absolute;
+      left: 50%;
+      margin: auto;
+      z-index: 999;
+      top: 40%;
+      text-align: center;
+
+      p {
+        padding: 1em 2em;
+        position: relative;
+        left: -50%;
+        color: white;
+        font-weight: 800;
+        background-color: transparentize(black, .6);
+      }
+    }
+
+    .overlay {
+      @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top),
+        transparentize($image-gradient-color-bottom, $transparency-bottom));
+      display: block;
+      @include position(absolute, 0px 0px 0px 0px);
+
+      &:after {
+        content: '';
+        @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left),
+          transparentize($image-gradient-color-right, $transparency-right));
+        display: block;
+        @include position(absolute, 0px 0px 0px 0px);
+      }
+    }
+  }
+
   @include clearfix;
-  // @include outer-container;
   position: relative;
   z-index: 9999;
   width: 100%;
 
   nav {
-    #logo {
+    #logo-text {
       font-family: 'Satisfy', cursive;
       font-size: 3.5em;
       font-weight: 800;
-      margin: 10px auto 0;
+      // margin: 10px auto 0;
       padding-top: .4em;
+      line-height: 50px;
       color: $main-color;
       position: relative;
       display: block;
@@ -21,13 +82,13 @@ $main-color: #FF86B2;
       text-shadow: .2px .2px .2px #000;
     }
 
-    #logo-subheader {
+    #logo-subtext {
       font-family: 'Playfair Display', serif;
       font-size: 1em;
       font-weight: 800;
       margin: 0 auto 0;
       padding-top: .4em;
-      color: gray;
+      color: white;
       position: relative;
       display: block;
       text-align: center;
@@ -35,39 +96,34 @@ $main-color: #FF86B2;
     }
 
     #nav-bar {
-      width: 100%;
+      width: 335px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
       display: block;
       overflow: hidden;
       height: 30px;
-      border-bottom: 1px solid #e1e3ea;
-      border-top: 1px solid #e1e3ea;
+      // border-bottom: 1px solid #e1e3ea;
+      // border-top: 1px solid #e1e3ea;
+      text-align: center;
 
-      ul li {
-        a {
-          font-weight: 400;
-          color: $main-color;
-          font-size: 14px;
-          border-left: 1px solid #e1e3ea;
-          display: block;
-          float: left;
-          padding: 5px 10px;
-          line-height: 20px;
-          height: 30px;
+      ul {
+        li {
+          a {
+            font-weight: 400;
+            color: $main-color;
+            font-size: 14px;
+            display: block;
+            float: left;
+            padding: 5px 10px;
+            line-height: 20px;
+            height: 30px;
+            text-align: center;
 
-          &:first-child {
-            border-left: 0px;
-          }
-
-          &:last-child {
-            border-right: 1px solid #e1e3ea;
-          }
-
-          &:hover {
-            color: white;
-            background-color: $main-color
+            &:hover {
+              color: white;
+              background-color: $main-color
+            }
           }
         }
       }
