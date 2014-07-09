@@ -20,9 +20,9 @@ $gradient-color-right: #FFEC94;
 
     background: url(/kristaks-front.png);
     background-size: cover;
-    background-position: top;
+    background-position: center;
     background-repeat: no-repeat;
-    padding: 12em 0 12em 0;
+    padding: 7em 0 7em 0;
     position: relative;
     width: 100%;
     display: table;
@@ -33,7 +33,7 @@ $gradient-color-right: #FFEC94;
       left: 50%;
       margin: auto;
       z-index: 999;
-      top: 40%;
+      top: 10%;
       text-align: center;
 
       p {
@@ -42,7 +42,7 @@ $gradient-color-right: #FFEC94;
         left: -50%;
         color: white;
         font-weight: 800;
-        background-color: transparentize(black, .6);
+        // background-color: transparentize(black, .6);
       }
     }
 
