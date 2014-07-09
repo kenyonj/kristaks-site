@@ -1,0 +1,2 @@
+class Smoothie < Flavor
+end

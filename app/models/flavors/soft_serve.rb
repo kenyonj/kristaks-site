@@ -1,0 +1,2 @@
+class SoftServe < Flavor
+end

@@ -17,6 +17,8 @@ gem 'bourbon'
 gem 'neat'
 gem 'rails_12factor', group: :production
 gem 'high_voltage', '~> 2.2.0'
+gem 'monban'
+gem 'monban-generators'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,6 +1,12 @@
 class Store < ActiveRecord::Base
   has_many :hours, dependent: :destroy
 
+  has_many :flavors, dependent: :destroy
+  has_many :hard_serve_flavors, class_name: "HardServe"
+  has_many :soft_serve_flavors, class_name: "SoftServe"
+  has_many :smoothie_flavors, class_name: "Smoothie"
+  has_many :fudge_flavors, class_name: "Fudge"
+
   def self.kristaks
     find(1)
   end

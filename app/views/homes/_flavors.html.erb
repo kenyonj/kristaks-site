@@ -2,25 +2,33 @@
   <li class="tab-header-and-content">
     <a href="#" class="is-active tab-link">Hard Serve</a>
     <div class="tab-content">
-      <p></p>
+      <ul>
+        <%= render @store.hard_serve_flavors.sort %>
+      </ul>
     </div>
   </li>
   <li class="tab-header-and-content">
     <a href="#" class="tab-link">Soft Serve</a>
     <div class="tab-content">
-      <p></p>
+      <ul>
+        <%= render @store.soft_serve_flavors.sort %>
+      </ul>
     </div>
   </li>
   <li class="tab-header-and-content">
     <a href="#" class="tab-link">Smoothies</a>
     <div class="tab-content">
-      <p></p>
+      <ul>
+        <%= render @store.smoothie_flavors.sort %>
+      </ul>
     </div>
   </li>
   <li class="tab-header-and-content">
     <a href="#" class="tab-link">Fudge</a>
     <div class="tab-content">
-      <p></p>
+      <ul>
+        <%= render @store.fudge_flavors.sort %>
+      </ul>
     </div>
   </li>
 </ul>

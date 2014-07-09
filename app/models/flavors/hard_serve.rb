@@ -1,0 +1,2 @@
+class HardServe < Flavor
+end
