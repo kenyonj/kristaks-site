@@ -52,7 +52,8 @@ header.navigation {
     z-index: 9999999;
     float: none;
     @include media ($horizontal-bar-mode) {
-      float: left;
+      text-align: center;
+      // float: left;
     }
   }
 
@@ -176,45 +177,6 @@ header.navigation {
           padding-left: $navigation-submenu-padding;
         }
       }
-    }
-  }
-
-  .navigation-tools {
-    @include clearfix;
-    display: none;
-    padding-right: $navigation-padding;
-    padding-left: $navigation-padding/2;
-    clear: both;
-    padding-bottom: 10px;
-    background: #505050;
-
-    @include media($large-screen) {
-      background: transparent;
-      float: right;
-      clear: none;
-      display: inline;
-    }
-  }
-
-  a.sign-in {
-    margin-top: 13px;
-    float: right;
-    @include transition (all 0.2s ease-in-out);
-    display: inline;
-    background: #FFAEAE;
-    border-radius: $base-border-radius;
-    color: white;
-    font-size: .8em;
-    font-weight: 800;
-    text-transform: uppercase;
-    padding: .4em .5em;
-
-    @include media($large-screen) {
-      padding: .4em 1em;
-    }
-
-    &:hover {
-      background: lighten($navigation-nav-button-background, 10);
     }
   }
 }
