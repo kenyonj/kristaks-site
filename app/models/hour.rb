@@ -3,7 +3,7 @@ class Hour < ActiveRecord::Base
   validates :day, uniqueness: true
 
   def today?
-    day == DateTime.now.strftime("%A")
+    day == todays_day
   end
 
   def closing_time_int
@@ -12,5 +12,12 @@ class Hour < ActiveRecord::Base
 
   def opening_time_int
     opens_at.strftime("%H%M").to_i
+  end
+
+  private
+
+  def todays_day
+    DateTime.now.in_time_zone("Eastern Time (US & Canada)").
+      strftime("%A")
   end
 end

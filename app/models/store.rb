@@ -20,7 +20,9 @@ class Store < ActiveRecord::Base
   end
 
   def time_now_integer
-    DateTime.now.strftime("%H%M").to_i
+    DateTime.now.in_time_zone("Eastern Time (US & Canada)").
+      strftime("%H%M").
+      to_i
   end
 
   def todays_closing_time_integer
@@ -32,6 +34,7 @@ class Store < ActiveRecord::Base
   end
 
   def today_name
-    DateTime.now.strftime("%A")
+    DateTime.now.in_time_zone("Eastern Time (US & Canada)").
+      strftime("%A")
   end
 end
