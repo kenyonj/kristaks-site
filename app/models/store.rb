@@ -9,6 +9,10 @@ class Store < ActiveRecord::Base
     before_closing_time? && after_opening_time?
   end
 
+  def map_url
+    "http://maps.google.com/?q=#{name}+#{address}"
+  end
+
   private
 
   def before_closing_time?

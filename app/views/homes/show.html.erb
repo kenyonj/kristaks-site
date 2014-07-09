@@ -1,6 +1,45 @@
 <div id='main-section'>
   <section>
     <div class="cards">
+
+      <div class="card">
+        <!-- <div class="ribbon&#45;wrapper"><div class="ribbon">COUPON</div></div> -->
+        <div class="card-image">
+          <%= image_tag "flavors.png" %>
+        </div>
+        <div class="card-header">
+          Flavors
+        </div>
+        <div class="card-copy">
+
+        </div>
+        <div class="card-stats">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <%= link_to image_tag("kristaks-map.png"), @store.map_url %>
+        </div>
+        <div class="card-header">
+          <span id="contact-info-title">Contact Information</span>
+        </div>
+        <div class="card-copy">
+          <h4>882 Route 28</h4>
+          <h4>West Dennis</h4>
+          <h4>MA 02670</h4>
+        </div>
+        <div class="card-stats">
+          <ul>
+            <li>
+              <%= number_to_phone(@store.phone_number, area_code: true) %>
+              <span>Phone</span>
+            </li>
+            <li><%= mail_to "info@kristaks.com" %><span>Email</span></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="card">
         <div class="card-image">
         </div>
@@ -26,45 +65,6 @@
               <%= render @store.hours.sort %>
             </tbody>
           </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ribbon-wrapper"><div class="ribbon">COUPON</div></div>
-        <div class="card-image">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png" alt="">
-        </div>
-        <div class="card-header">
-          Another Card
-        </div>
-        <div class="card-copy">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
-        </div>
-        <div class="card-stats">
-          <ul>
-            <li>98<span>Items</span></li>
-            <li>298<span>Things</span></li>
-            <li>923<span>Objects</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png" alt="">
-        </div>
-        <div class="card-header">
-          The Last Card
-        </div>
-        <div class="card-copy">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
-        </div>
-        <div class="card-stats">
-          <ul>
-            <li>98<span>Items</span></li>
-            <li>298<span>Things</span></li>
-            <li>923<span>Objects</span></li>
-          </ul>
         </div>
       </div>
     </div>
