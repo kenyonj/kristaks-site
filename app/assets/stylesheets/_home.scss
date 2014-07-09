@@ -75,6 +75,18 @@
     text-align: center;
     padding: $base-line-height/3 $gutter/2;
 
+    .status {
+      font-weight: 800;
+
+      &.closed {
+        color: red;
+      }
+
+      &.open {
+        color: green;
+      }
+    }
+
     #contact-info-title {
       font-family: 'Satisfy', cursive;
       font-size: 2.5em;

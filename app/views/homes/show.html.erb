@@ -47,9 +47,9 @@
           <span id="current-hours-title">Current Hours</span>
           We are currently:
           <% if @store.open? %>
-            <em><strong>OPEN</strong></em>
+            <span class="status open">OPEN</span>
           <% else %>
-            <em><strong>CLOSED</strong></em>
+            <span class="status closed">CLOSED</span>
           <% end %>
         </div>
         <div class="card-copy">
