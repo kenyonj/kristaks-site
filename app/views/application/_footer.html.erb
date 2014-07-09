@@ -1,0 +1,17 @@
+<footer class="footer-2">
+  <div class="footer-logo">
+  </div>
+    <div class="footer-secondary-links">
+      <ul>
+        <% if signed_in? %>
+          <li><%= link_to "Sign Out", session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Employee Sign In", new_session_path %></li>
+        <% end %>
+      </ul>
+
+      <ul class="footer-social">
+        <li><%= link_to image_tag("facebook-logo-circle.png"), "https://www.facebook.com/kristaksicecream" %></li>
+      </ul>
+    </div>
+</footer>

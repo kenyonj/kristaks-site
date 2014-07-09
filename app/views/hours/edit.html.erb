@@ -1,0 +1,15 @@
+<div id="edit-hours">
+  <% @store.hours.sort.each do |hour| %>
+    <div class="hours-for-day">
+      <%= form_for :hour, url: [@store, hour], method: :patch do |form| %>
+        <%= form.label :opens_at %>
+        <%= hour.opening_time_friendly %>
+        <%= form.select :opens_at, Hour::VALID_OPEN_TIMES, selected: hour.opening_time_friendly %>
+        <%= form.label :closes_at %>
+        <%= hour.closing_time_friendly %>
+        <%= form.select :closes_at, Hour::VALID_CLOSING_TIMES, selected: hour.closing_time_friendly %>
+        <%= form.submit "Update hours for #{hour.day}" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

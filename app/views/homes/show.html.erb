@@ -51,6 +51,12 @@
           <% else %>
             <span class="status closed">CLOSED</span>
           <% end %>
+
+          <% if current_user.admin? %>
+            <div>
+              <%= link_to "edit hours", edit_store_hours_path(@store) %>
+            </div>
+          <% end %>
           <table>
             <thead>
               <tr>

@@ -1,0 +1,9 @@
+#edit-hours {
+  @include outer-container;
+  padding: 25px;
+
+  .hours-for-day {
+    @include span-columns(3);
+    @include omega(4n);
+  }
+}

@@ -4,6 +4,6 @@
   <% else %>
     <td><em><%= hour.day %></em></td>
   <% end %>
-  <td><%= hour.opens_at.strftime("%I%p") %></td>
-  <td><%= hour.closes_at.strftime("%I%p") %></td>
+  <td><%= hour.opens_at.strftime("%l %p") %></td>
+  <td><%= hour.closes_at.strftime("%l %p") %></td>
 </tr>

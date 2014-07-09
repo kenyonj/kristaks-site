@@ -23,7 +23,10 @@
     </div>
   </div>
   <%= render "nav_bar" %>
-  <%= yield %>
-
+  <div class="wrapper-for-content-outside-of-footer">
+     <%= yield %>
+    <div class="push"></div>
+  </div>
+  <%= render "footer" %>
 </body>
 </html>
