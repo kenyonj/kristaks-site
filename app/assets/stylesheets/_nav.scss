@@ -67,63 +67,63 @@ $gradient-color-right: #FFEC94;
   z-index: 9999;
   width: 100%;
 
-  nav {
-    #logo-text {
-      font-family: 'Satisfy', cursive;
-      font-size: 3.5em;
-      font-weight: 800;
-      // margin: 10px auto 0;
-      padding-top: .4em;
-      line-height: 50px;
-      color: $main-color;
-      position: relative;
-      display: block;
-      text-align: center;
-      text-shadow: .2px .2px .2px #000;
-    }
+  #logo-text {
+    font-family: 'Satisfy', cursive;
+    font-size: 3.5em;
+    font-weight: 800;
+    // margin: 10px auto 0;
+    padding-top: .4em;
+    line-height: 50px;
+    color: $main-color;
+    position: relative;
+    display: block;
+    text-align: center;
+    text-shadow: .2px .2px .2px #000;
+  }
 
-    #logo-subtext {
-      font-family: 'Playfair Display', serif;
-      font-size: 1em;
-      font-weight: 800;
-      margin: 0 auto 0;
-      padding-top: .4em;
-      color: white;
-      position: relative;
-      display: block;
-      text-align: center;
-      text-shadow: .2px .2px .2px #000;
-    }
+  #logo-subtext {
+    font-family: 'Playfair Display', serif;
+    font-size: 1em;
+    font-weight: 800;
+    margin: 0 auto 0;
+    padding-top: .4em;
+    color: white;
+    position: relative;
+    display: block;
+    text-align: center;
+    text-shadow: .2px .2px .2px #000;
+  }
 
-    #nav-bar {
-      width: 335px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      display: block;
-      overflow: hidden;
-      height: 30px;
-      // border-bottom: 1px solid #e1e3ea;
-      // border-top: 1px solid #e1e3ea;
-      text-align: center;
+  #nav-bar {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 30px;
+    background-color: gray;
+    // border-bottom: 1px solid #e1e3ea;
+    // border-top: 1px solid #e1e3ea;
+    text-align: center;
 
-      ul {
-        li {
-          a {
-            font-weight: 400;
-            color: $main-color;
-            font-size: 14px;
-            display: block;
-            float: left;
-            padding: 5px 10px;
-            line-height: 20px;
-            height: 30px;
-            text-align: center;
+    ul {
+      li {
+        a {
+          font-weight: 100;
+          color: white;
+          font-size: 20px;
+          display: block;
+          float: left;
+          padding: 5px 10px;
+          line-height: 20px;
+          height: 30px;
+          text-align: center;
+          text-shadow: .2px .2px .2px white;
 
-            &:hover {
-              color: white;
-              background-color: $main-color
-            }
+          &:hover {
+            color: white;
+            background-color: $main-color
           }
         }
       }

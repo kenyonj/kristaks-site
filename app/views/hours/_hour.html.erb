@@ -1,0 +1,9 @@
+<tr>
+  <% if hour.today? %>
+    <td><em><strong><%= hour.day %></strong></em></td>
+  <% else %>
+    <td><em><%= hour.day %></em></td>
+  <% end %>
+  <td><%= hour.opens_at.strftime("%I%p") %></td>
+  <td><%= hour.closes_at.strftime("%I%p") %></td>
+</tr>

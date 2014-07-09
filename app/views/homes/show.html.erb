@@ -1,5 +1,72 @@
 <div id='main-section'>
   <section>
-    THIS IS THE MAIN SECTION
+    <div class="cards">
+      <div class="card">
+        <div class="card-image">
+          <span id="current-hours-title">Current Hours</span>
+        </div>
+        <div class="card-header">
+          We are currently:
+          <% if @store.open? %>
+            <em><strong>OPEN</strong></em>
+          <% else %>
+            <em><strong>CLOSED</strong></em>
+          <% end %>
+        </div>
+        <div class="card-copy">
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Open</th>
+                <th>Close</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @store.hours %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="ribbon-wrapper"><div class="ribbon">COUPON</div></div>
+        <div class="card-image">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png" alt="">
+        </div>
+        <div class="card-header">
+          Another Card
+        </div>
+        <div class="card-copy">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+        </div>
+        <div class="card-stats">
+          <ul>
+            <li>98<span>Items</span></li>
+            <li>298<span>Things</span></li>
+            <li>923<span>Objects</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png" alt="">
+        </div>
+        <div class="card-header">
+          The Last Card
+        </div>
+        <div class="card-copy">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+        </div>
+        <div class="card-stats">
+          <ul>
+            <li>98<span>Items</span></li>
+            <li>298<span>Things</span></li>
+            <li>923<span>Objects</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
