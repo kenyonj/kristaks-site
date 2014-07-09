@@ -3,7 +3,6 @@
     <div class="cards">
 
       <div class="card">
-        <!-- <div class="ribbon&#45;wrapper"><div class="ribbon">COUPON</div></div> -->
         <div class="card-image">
           <%= image_tag "flavors.png" %>
         </div>
@@ -40,17 +39,18 @@
 
       <div class="card">
         <div class="card-image">
+          <%= image_tag "kristaks.png" %>
         </div>
         <div class="card-header">
           <span id="current-hours-title">Current Hours</span>
-          We are currently:
+        </div>
+        <div class="card-copy">
+          <span class="status">We are currently:</span>
           <% if @store.open? %>
             <span class="status open">OPEN</span>
           <% else %>
             <span class="status closed">CLOSED</span>
           <% end %>
-        </div>
-        <div class="card-copy">
           <table>
             <thead>
               <tr>

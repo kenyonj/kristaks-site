@@ -75,18 +75,6 @@
     text-align: center;
     padding: $base-line-height/3 $gutter/2;
 
-    .status {
-      font-weight: 800;
-
-      &.closed {
-        color: red;
-      }
-
-      &.open {
-        color: green;
-      }
-    }
-
     #flavors-info-title {
       font-family: 'Satisfy', cursive;
       font-size: 2.5em;
@@ -111,7 +99,7 @@
 
     #current-hours-title {
       font-family: 'Satisfy', cursive;
-      font-size: 3.5em;
+      font-size: 2.5em;
       font-weight: 800;
       position: relative;
       display: block;
@@ -127,6 +115,19 @@
     font-size: .9em;
     line-height: 1.5em;
     text-align: center;
+
+    .status {
+      font-size: 1.5em;
+      font-weight: 800;
+
+      &.closed {
+        color: red;
+      }
+
+      &.open {
+        color: green;
+      }
+    }
 
     table th {
       text-align: center;
