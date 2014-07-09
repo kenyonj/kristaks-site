@@ -69,21 +69,26 @@ $gradient-color-right: #FFEC94;
 
   #logo-text {
     font-family: 'Satisfy', cursive;
-    font-size: 3.5em;
+    font-size: 4.5em;
     font-weight: 800;
     // margin: 10px auto 0;
     padding-top: .4em;
     line-height: 50px;
     color: $main-color;
     position: relative;
+    width: 500px;
     display: block;
     text-align: center;
     text-shadow: .2px .2px .2px #000;
+
+    @include media($large-screen) {
+      font-size: 8.5em;
+    }
   }
 
   #logo-subtext {
     font-family: 'Playfair Display', serif;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: 800;
     margin: 0 auto 0;
     padding-top: .4em;
@@ -92,6 +97,10 @@ $gradient-color-right: #FFEC94;
     display: block;
     text-align: center;
     text-shadow: .2px .2px .2px #000;
+
+    @include media($large-screen) {
+      font-size: 2.5em;
+    }
   }
 
   #nav-bar {
