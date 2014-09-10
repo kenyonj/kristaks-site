@@ -4,6 +4,11 @@
   <% else %>
     <td><em><%= hour.day %></em></td>
   <% end %>
-  <td><%= hour.opens_at.strftime("%l %p") %></td>
-  <td><%= hour.closes_at.strftime("%l %p") %></td>
+  <% if hour.working? %>
+    <td><%= hour.opens_at.strftime("%l %p") %></td>
+    <td><%= hour.closes_at.strftime("%l %p") %></td>
+  <% else %>
+    <td>CLOSED</td>
+    <td></td>
+  <% end %>
 </tr>

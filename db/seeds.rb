@@ -1,11 +1,11 @@
 STORE_HOURS = [
-  ["Monday", "12PM", "11PM"],
-  ["Tuesday", "12PM", "11PM"],
-  ["Wednesday", "12PM", "11PM"],
-  ["Thursday", "12PM", "11PM"],
-  ["Friday", "12PM", "11PM"],
-  ["Saturday", "12PM", "11PM"],
-  ["Sunday", "12PM", "11PM"],
+  ["Monday", "12PM", "11PM", false],
+  ["Tuesday", "12PM", "11PM", false],
+  ["Wednesday", "12PM", "11PM", false],
+  ["Thursday", "12PM", "9PM", true],
+  ["Friday", "12PM", "10PM", true],
+  ["Saturday", "12PM", "10PM", true],
+  ["Sunday", "12PM", "9PM", true],
 ]
 
 kristaks = Store.create(
@@ -14,6 +14,6 @@ kristaks = Store.create(
   phone_number: "5083986569"
 )
 
-STORE_HOURS.each do |day, opens, closes|
-  kristaks.hours.create(day: day, opens_at: opens, closes_at: closes)
+STORE_HOURS.each do |day, opens, closes, working|
+  kristaks.hours.create(day: day, opens_at: opens, closes_at: closes, working: working)
 end

@@ -12,7 +12,9 @@ class Store < ActiveRecord::Base
   end
 
   def open?
-    before_closing_time? && after_opening_time?
+    if working?
+      before_closing_time? && after_opening_time?
+    end
   end
 
   def map_url
@@ -25,6 +27,10 @@ class Store < ActiveRecord::Base
   end
 
   private
+
+  def working?
+    hours.find_by(day: today_name).working?
+  end
 
   def before_closing_time?
     time_now_integer < todays_closing_time_integer
