@@ -1,0 +1,12 @@
+<%= form_for [:store, @flavor] do |form| %>
+  <% Flavor::TYPES.each do |type| %>
+    <p>
+      <%= form.radio_button :type, type %>
+      <%= type %>
+    </p>
+  <% end %>
+
+  <p><%= form.text_field :name, placeholder: "Flavor Name" %></p>
+  <p><%= form.text_field :description, placeholder: "Flavor Description" %></p>
+  <%= form.submit "Create Flavor" %>
+<% end %>

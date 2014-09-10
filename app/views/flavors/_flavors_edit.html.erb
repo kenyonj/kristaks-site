@@ -1,0 +1,59 @@
+<tr>
+  <td><strong><%= flavors.first.try(:type) %></strong></td>
+</tr>
+<% flavors.sort_by.each do |flavor| %>
+  <script>
+    $(document).ready(function() {
+      $("#<%= dom_id(flavor) %>_in_stock").change(function() {
+        var url = "<%= flavor_stock_path(flavor) %>"
+        var data = { value O$(this).prop('checked')
+
+        $.ajax({
+          type: "PATCH",
+          url: url,
+          data: data,
+          success: success,
+          dataType: dataType
+        });
+      });
+    });
+  </script>
+  <tr>
+    <td><%= flavor.name %></td>
+    <td>
+      <label class="label-switch">
+        <%= check_box_tag :in_stock, true, flavor.in_stock?, id: "#{dom_id(flavor)}_in_stock" %>
+        <div class="checkbox"></div>
+      </label>
+    </td>
+    <td>
+      <%= link_to(
+        "Edit",
+        edit_flavor_path(flavor),
+        id: "#{dom_id(flavor)}_edit_button",
+        remote: true
+        )
+      %>
+      -
+      <%= link_to(
+        "Delete",
+        flavor_path(flavor),
+        method: :delete,
+        confirm: "Are you sure you want to delete this flavor?"
+        )
+      %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= div_for flavor, class: "hidden" do %>
+        <%= form_for flavor, as: :flavor, remote: true, url: flavor_path(flavor), method: :patch do |form| %>
+          <p><%= form.text_field :name, placeholder: "Flavor Name" %></p>
+          <p><%= form.text_field :description, placeholder: "Flavor Description" %></p>
+          <%= form.submit "Edit Flavor" %>
+        <% end %>
+          <%= button_tag "Cancel", url: "#", method: :get, id: "#{dom_id(flavor)}_cancel_button" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

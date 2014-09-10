@@ -1,0 +1,135 @@
+#flavors-edit {
+  @include outer-container;
+
+  .table-minimal {
+    $table-border-color: $base-border-color;
+    $table-border: 1px solid $table-border-color;
+    $table-background: $base-body-color;
+    $table-header-color: lighten($table-background, 10);
+    $table-hover-color: darken($table-background, 2);
+    $table-stripe-color: darken($table-background, 4);
+    $table-stripe-color-hover: darken($table-stripe-color, 5);
+    $table-padding: 0.5em;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    tbody {
+      tr:hover > td, tr:hover > th {
+        background-color: $table-hover-color;
+      }
+      tr:first-child td {
+        border-top: 2px solid $table-border-color;
+      }
+    }
+
+    thead {
+      th {
+        background-color: $table-header-color;
+        padding: $table-padding;
+        border-bottom: 0px;
+      }
+    }
+
+    tbody {
+      background-color: $table-background;
+
+      td {
+        padding: $table-padding;
+        border-top: 1px solid $table-border-color;
+        border-bottom: 0px;
+
+        button {
+          @include button(simple, $table-background);
+          margin-right: 0.5em;
+          display: inline-block;
+          width: 100%;
+          margin-bottom: .3em;
+          outline: none;
+
+          @include media($medium-screen) {
+            width: auto;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  .label-switch {
+    $switch-width: 52px;
+    $switch-padding: 2px;
+    $switch-height: 32px;
+    $switch-radius: $switch-height;
+    $knob-height: $switch-height - ($switch-padding * 2);
+    $knob-width: $knob-height;
+    $knob-radius: $switch-height - ($switch-padding * 2);
+
+    align-self: center;
+    border-radius: $switch-radius;
+    cursor: pointer;
+    display: inline-block;
+    height: $switch-height;
+    position: relative;
+    vertical-align: middle;
+    width: $switch-width;
+    @include box-sizing(border-box);
+
+    input[type="checkbox"] {
+      display: none;
+
+    + .checkbox {
+      background: #e5e5e5;
+      border: none;
+      border-radius: $switch-radius;
+      cursor: pointer;
+      height: $switch-height;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      width: $switch-width;
+      z-index: 0;
+      @include box-sizing(border-box);
+      @include transition(all 0.3s ease);
+
+      &:before {
+        background: white;
+        border-radius: $switch-radius;
+        content: ' ';
+        height: $knob-radius;
+        width: $switch-width - ($switch-padding * 2);
+        z-index: 1;
+        @include box-sizing(border-box);
+        @include position(absolute, 2px 0 0 2px);
+        @include transition(all 0.3s ease);
+        @include transform(scale(1));
+      }
+
+      &:after {
+        background: white;
+        border-radius: $knob-radius;
+        content: ' ';
+        height: $knob-height;
+        width: $knob-width;
+        z-index: 2;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        @include position(absolute, 2px 0 0 2px);
+        @include transition(all 0.3s ease);
+      }
+    }
+
+    &:checked {
+      + .checkbox {
+        background: $blue;
+          
+          &:before {
+            @include transform(scale(0));
+          }
+
+          &:after {
+            left: $switch-width - $knob-width - ($switch-padding);
+          }
+        }
+      }
+    }
+  }
+}

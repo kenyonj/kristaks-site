@@ -1,0 +1,4 @@
+$("#<%= dom_id(@flavor) %>").slideDown();
+$("#<%= dom_id(@flavor) %>_cancel_button").click(function(e) {
+  $("#<%= dom_id(@flavor) %>").slideUp();
+});

@@ -1,34 +1,18 @@
 <ul class="accordion-tabs">
-  <li class="tab-header-and-content">
-    <a href="#" class="is-active tab-link">Hard Serve</a>
-    <div class="tab-content">
-      <ul>
-        <%= render @store.hard_serve_flavors.sort %>
-      </ul>
-    </div>
-  </li>
-  <li class="tab-header-and-content">
-    <a href="#" class="tab-link">Soft Serve</a>
-    <div class="tab-content">
-      <ul>
-        <%= render @store.soft_serve_flavors.sort %>
-      </ul>
-    </div>
-  </li>
-  <li class="tab-header-and-content">
-    <a href="#" class="tab-link">Smoothies</a>
-    <div class="tab-content">
-      <ul>
-        <%= render @store.smoothie_flavors.sort %>
-      </ul>
-    </div>
-  </li>
-  <li class="tab-header-and-content">
-    <a href="#" class="tab-link">Fudge</a>
-    <div class="tab-content">
-      <ul>
-        <%= render @store.fudge_flavors.sort %>
-      </ul>
-    </div>
-  </li>
+  <% Flavor::TYPES.each do |type| %>
+    <li class="tab-header-and-content">
+    <a href="#" class="tab-link">
+      <%= type.underscore.split("_").join(" ").titleize %>
+    </a>
+      <div class="tab-content">
+        <ul>
+          <%= render @store.flavors_by_name(type) %>
+        </ul>
+      </div>
+    </li>
+  <% end %>
 </ul>
+
+<% if current_user.admin? %>
+  <%= link_to "edit flavors", store_flavors_path(@store) %>
+<% end %>

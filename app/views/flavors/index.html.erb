@@ -1,0 +1,16 @@
+<div id="flavors-edit">
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th><h3>Flavor</h3></th>
+        <th><h3>In Stock</h3></th>
+        <th><h3>Options</h3></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Flavor::TYPES.each do |type| %>
+        <%= render "flavors_edit", flavors: @store.flavors_by_name(type) %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -19,6 +19,11 @@ class Store < ActiveRecord::Base
     "http://maps.google.com/?q=#{name}+#{address}"
   end
 
+  def flavors_by_name(type)
+    flavors.where(type: type).
+      order(:name)
+  end
+
   private
 
   def before_closing_time?

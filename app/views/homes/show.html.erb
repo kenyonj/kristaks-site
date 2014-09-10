@@ -7,9 +7,13 @@
           <%= image_tag "flavors.jpg" %>
         </div>
         <div class="card-header">
-          <span id="flavors-info-title">Flavors</span>
+          <span id="flavors-info-title">Flavors <br> (coming soon)</span>
         </div>
         <div class="card-copy">
+          <% if current_user.admin? %>
+            <%= link_to "Add Flavors", new_store_flavor_path(@store) %>
+          <% end %>
+
           <%= render "flavors" %>
         </div>
       </div>
