@@ -17,6 +17,14 @@ class Store < ActiveRecord::Base
     end
   end
 
+  def in_season?
+   before_closing_day?
+  end
+
+  def off_season?
+    !in_season?
+  end
+
   def map_url
     "http://maps.google.com/?q=#{name}+#{address}"
   end
@@ -32,12 +40,26 @@ class Store < ActiveRecord::Base
     hours.find_by(day: today_name).working?
   end
 
+  def before_closing_day?
+    date_now_integer < closing_day_integer
+  end
+
   def before_closing_time?
     time_now_integer < todays_closing_time_integer
   end
 
   def after_opening_time?
     time_now_integer > todays_opening_time_integer
+  end
+
+  def date_now_integer
+    DateTime.now.in_time_zone("Eastern Time (US & Canada)").
+      strftime("%m%d%Y").
+      to_i
+  end
+
+  def closing_day_integer
+    closing_day.strftime("%m%d%Y").to_i
   end
 
   def time_now_integer

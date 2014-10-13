@@ -1,66 +1,69 @@
 <div id='main-section'>
-  <section>
-    <div class="cards">
+<section>
+  <div class="cards">
 
-      <div class="card">
-        <div class="card-image">
-          <%= image_tag "flavors.jpg" %>
-        </div>
-        <div class="card-header">
-          <span id="flavors-info-title">Flavors <br> (coming soon)</span>
-        </div>
-        <div class="card-copy">
-          <% if current_user.admin? %>
-            <%= link_to "Add Flavors", new_store_flavor_path(@store) %>
-          <% end %>
-
-          <%= render "flavors" %>
-        </div>
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag "flavors.jpg" %>
       </div>
-
-      <div class="card">
-        <div class="card-image">
-          <%= link_to image_tag("kristaks-map.jpeg"), @store.map_url %>
-        </div>
-        <div class="card-header">
-          <span id="contact-info-title">Contact Information</span>
-        </div>
-        <div class="card-copy">
-          <h4>882 Route 28</h4>
-          <h4>West Dennis</h4>
-          <h4>MA 02670</h4>
-        </div>
-        <div class="card-stats">
-          <ul>
-            <li>
-              <%= number_to_phone(@store.phone_number, area_code: true) %>
-              <span>Phone</span>
-            </li>
-            <li><%= mail_to "info@kristaks.com" %><span>Email</span></li>
-          </ul>
-        </div>
+      <div class="card-header">
+        <span id="flavors-info-title">Flavors <br> (coming soon)</span>
       </div>
+      <div class="card-copy">
+        <% if current_user.admin? %>
+          <%= link_to "Add Flavors", new_store_flavor_path(@store) %>
+        <% end %>
 
-      <div class="card">
-        <div class="card-image">
-          <%= image_tag "kristaks.jpeg" %>
-        </div>
-        <div class="card-header">
-          <span id="current-hours-title">Current Hours</span>
-        </div>
-        <div class="card-copy">
-          <span class="status">We are currently:</span>
-          <% if @store.open? %>
-            <span class="status open">OPEN</span>
-          <% else %>
-            <span class="status closed">CLOSED</span>
-          <% end %>
+        <%= render "flavors" %>
+      </div>
+    </div>
 
-          <% if current_user.admin? %>
-            <div>
-              <%= link_to "edit hours", edit_store_hours_path(@store) %>
-            </div>
-          <% end %>
+    <div class="card">
+      <div class="card-image">
+        <%= link_to image_tag("kristaks-map.jpeg"), @store.map_url %>
+      </div>
+      <div class="card-header">
+        <span id="contact-info-title">Contact Information</span>
+      </div>
+      <div class="card-copy">
+        <h4>882 Route 28</h4>
+        <h4>West Dennis</h4>
+        <h4>MA 02670</h4>
+      </div>
+      <div class="card-stats">
+        <ul>
+          <li>
+            <%= number_to_phone(@store.phone_number, area_code: true) %>
+            <span>Phone</span>
+          </li>
+          <li><%= mail_to "info@kristaks.com" %><span>Email</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag "kristaks.jpeg" %>
+      </div>
+      <div class="card-header">
+        <span id="current-hours-title">Current Hours</span>
+      </div>
+      <div class="card-copy">
+        <span class="status">We are currently:</span>
+        <% if @store.open? %>
+          <span class="status open">OPEN</span>
+        <% elsif @store.off_season? %>
+          <span class="status closed"><br>CLOSED FOR THE SEASON</span>
+        <% else %>
+          <span class="status closed">CLOSED</span>
+        <% end %>
+
+        <% if current_user.admin? %>
+          <div>
+            <%= link_to "edit hours", edit_store_hours_path(@store) %>
+          </div>
+        <% end %>
+        <% if @store.in_season? %>
           <table>
             <thead>
               <tr>
@@ -73,8 +76,9 @@
               <%= render @store.hours.sort %>
             </tbody>
           </table>
-        </div>
+        <% end %>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </div>
