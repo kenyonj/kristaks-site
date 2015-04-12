@@ -8,7 +8,7 @@ class Store < ActiveRecord::Base
   has_many :fudge_flavors, class_name: "Fudge"
 
   def self.kristaks
-    find(1)
+    find(3)
   end
 
   def open?
