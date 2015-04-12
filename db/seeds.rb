@@ -16,6 +16,8 @@ kristaks.update(
   opening_day: DateTime.new(2015,4,17,12,0,0).in_time_zone('EST')
 )
 
+kristaks.hours.destroy_all
+
 STORE_HOURS.each do |day, opens, closes, working|
   kristaks.hours.create(day: day, opens_at: opens, closes_at: closes, working: working)
 end
