@@ -8,7 +8,8 @@ STORE_HOURS = [
   ["Sunday", "12PM", "9PM", true],
 ]
 
-kristaks = Store.find_or_initialize_by(name: "Krista K's").update(
+kristaks = Store.find_or_initialize_by(name: "Krista K's")
+kristaks.update(
   address: "882 Route 28, West Dennis, MA 02670",
   phone_number: "5083986569",
   closing_day: DateTime.new(2015,10,14,12,0,0).in_time_zone('EST'),
