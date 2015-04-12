@@ -1,8 +1,8 @@
 STORE_HOURS = [
-  ["Monday", "12PM", "11PM", true],
-  ["Tuesday", "12PM", "11PM", true],
-  ["Wednesday", "12PM", "11PM", true],
-  ["Thursday", "12PM", "9PM", true],
+  ["Monday", "12PM", "11PM", false],
+  ["Tuesday", "12PM", "11PM", false],
+  ["Wednesday", "12PM", "11PM", false],
+  ["Thursday", "12PM", "9PM", false],
   ["Friday", "12PM", "10PM", true],
   ["Saturday", "12PM", "10PM", true],
   ["Sunday", "12PM", "9PM", true],
