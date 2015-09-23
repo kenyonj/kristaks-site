@@ -12,7 +12,7 @@ class Store < ActiveRecord::Base
   end
 
   def open?
-    if working?
+    if working? && in_season?
       before_closing_time? && after_opening_time?
     end
   end
