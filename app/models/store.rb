@@ -18,7 +18,7 @@ class Store < ActiveRecord::Base
   end
 
   def in_season?
-   before_closing_day?
+   after_opening_day? && before_closing_day?
   end
 
   def off_season?
@@ -44,6 +44,10 @@ class Store < ActiveRecord::Base
     date_now_integer < closing_day_integer
   end
 
+  def after_opening_day?
+    date_now_integer > opening_day_integer
+  end
+
   def before_closing_time?
     time_now_integer < todays_closing_time_integer
   end
@@ -60,6 +64,10 @@ class Store < ActiveRecord::Base
 
   def closing_day_integer
     closing_day.strftime("%m%d%Y").to_i
+  end
+
+  def opening_day_integer
+    opening_day.strftime("%m%d%Y").to_i
   end
 
   def time_now_integer
