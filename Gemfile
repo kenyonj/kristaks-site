@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 ruby "2.2.2"
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.6'
 
-gem 'activeadmin', '~> 1.0.0.pre1'
+gem 'activeadmin', github: 'activeadmin'
 gem 'aws-sdk'
 gem 'bourbon'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'high_voltage', '~> 2.2.0'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
@@ -16,9 +15,9 @@ gem 'devise'
 gem 'paperclip'
 gem 'pg'
 gem 'pusher'
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails'
 gem 'turbolinks'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'unicorn-rails'
 
 group :doc do
