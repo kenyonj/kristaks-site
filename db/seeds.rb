@@ -13,7 +13,8 @@ kristaks.update(
   address: "882 Route 28, West Dennis, MA 02670",
   phone_number: "5083986569",
   closing_day: DateTime.new(2015,10,14,12,0,0).in_time_zone('EST'),
-  opening_day: DateTime.new(2015,4,17,12,0,0).in_time_zone('EST')
+  opening_day: DateTime.new(2015,4,17,12,0,0).in_time_zone('EST'),
+  hours_header_text: "See you in April 2015!",
 )
 
 kristaks.hours.destroy_all

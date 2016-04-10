@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013013621) do
+ActiveRecord::Schema.define(version: 20160410144139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20141013013621) do
     t.datetime "updated_at"
     t.datetime "closing_day"
     t.datetime "opening_day"
+    t.text     "hours_header_text", default: "", null: false
   end
 
   create_table "users", force: true do |t|
