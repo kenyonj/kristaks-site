@@ -26,14 +26,14 @@ class Api::HoursController < ApiController
   end
 
   def day
-    hour_update_params.split(" ")[0]
+    hour_update_params[:text].split(" ")[0]
   end
 
   def opens_at
-    hour_update_params.split(" ")[1]
+    hour_update_params[:text].split(" ")[1]
   end
 
   def closes_at
-    hour_update_params.split(" ")[2]
+    hour_update_params[:text].split(" ")[2]
   end
 end
