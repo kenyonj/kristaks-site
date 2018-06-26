@@ -1,6 +1,6 @@
 class Api::HoursController < ApiController
   def create
-    if token == ENV["SLACK_TOKEN"]
+    if hour_update_params[:token] == ENV["SLACK_TOKEN"]
       hour.update_times(closes_at: closes_at, opens_at: opens_at)
       head 200
     else
