@@ -22,12 +22,14 @@ class Api::HoursController < ApiController
   end
 
   def update_hours_text
-    "You just updated #{day}'s hours." \
-    "Opening at #{hour.opening_time_friendly}" \
+    "\n"\
+    "You just updated #{day}'s hours.\n"\
+    "Opening at #{hour.opening_time_friendly} "\
     "and closing at #{hour.closing_time_friendly}."
   end
 
   def hours_list_text
+    "\n"\
     "Monday: #{store.hours.find_by(day: 'Monday').opening_time_friendly} -"\
     "#{store.hours.find_by(day: 'Monday').closing_time_friendly}\n"\
     "Tuesday: #{store.hours.find_by(day: 'Tuesday').opening_time_friendly} -"\
