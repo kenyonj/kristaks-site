@@ -14,4 +14,8 @@ Kristaks::Application.routes.draw do
   resources :flavors, only: [:edit, :destroy, :update] do
     resource :stock, only: [:update]
   end
+
+  namespace :api do
+    resources :hours, only: [:create]
+  end
 end
