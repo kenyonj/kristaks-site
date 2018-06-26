@@ -1,79 +1,71 @@
-class Api::HoursController < ApiController
-  before_action :verify_api_token
+module Api
+  class HoursController < ApiController
+    DAYS_LIST =
+      %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday).freeze
 
-  def create
-    if list_requested?
-      render json: {
-        text: hours_list_text
-      }.to_json
-    else
-      hour.update_times(closes_at: closes_at, opens_at: opens_at)
+    before_action :verify_slack_api_token
 
-      render json: {
-        text: update_hours_text
-      }
+    def create
+      if list_requested?
+        render json: {
+          text: hours_list_text
+        }.to_json
+      else
+        hour.update_times(closes_at: closes_at, opens_at: opens_at)
+
+        render json: {
+          text: update_hours_text
+        }
+      end
     end
-  end
 
-  private
+    private
 
-  def list_requested?
-    hour_update_params[:text] == 'list'
-  end
+    def list_requested?
+      hour_update_params[:text] == 'list'
+    end
 
-  def update_hours_text
-    "\n"\
-    "You just updated #{day}'s hours.\n"\
-    "Opening at #{hour.opening_time_friendly} "\
-    "and closing at #{hour.closing_time_friendly}."
-  end
+    def update_hours_text
+      "You just updated #{day}'s hours.\n"\
+      "Opening at #{hour.opening_time_friendly} "\
+      "and closing at #{hour.closing_time_friendly}."
+    end
 
-  def hours_list_text
-    "\n"\
-    "Monday: #{store.hours.find_by(day: 'Monday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Monday').closing_time_friendly}\n"\
-    "Tuesday: #{store.hours.find_by(day: 'Tuesday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Tuesday').closing_time_friendly}\n"\
-    "Wednesday: #{store.hours.find_by(day: 'Wednesday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Wednesday').closing_time_friendly}\n"\
-    "Thursday: #{store.hours.find_by(day: 'Thursday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Thursday').closing_time_friendly}\n"\
-    "Friday: #{store.hours.find_by(day: 'Friday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Friday').closing_time_friendly}\n"\
-    "Saturday: #{store.hours.find_by(day: 'Saturday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Saturday').closing_time_friendly}\n"\
-    "Sunday: #{store.hours.find_by(day: 'Sunday').opening_time_friendly} -"\
-    "#{store.hours.find_by(day: 'Sunday').closing_time_friendly}\n"
-  end
+    def hours_list_text
+      DAYS_LIST.map do |day_name|
+        hours_for_day = store.hours.find_by(day: day_name)
 
-  def hour
-    store.hours.find_by!(day: day)
-  end
+        "#{day_name}: "\
+        "#{hours_for_day.opening_time_friendly} -"\
+        "#{hours_for_day.closing_time_friendly}"
+      end.join("\n")
+    end
 
-  def store
-    Store.kristaks
-  end
+    def hour
+      @_hour ||= store.hours.find_by!(day: day.capitalize)
+    end
 
-  def hour_update_params
-    params.permit(
-      :token,
-      :text
-    )
-  end
+    def store
+      @_store ||= Store.kristaks
+    end
 
-  def day
-    hour_update_params[:text].split(" ")[0]
-  end
+    def hour_update_params
+      params.permit(
+        :token,
+        :text
+      )
+    end
 
-  def opens_at
-    hour_update_params[:text].split(" ")[1]
-  end
+    def day
+      hour_update_params[:text].split(' ')[0]
+    end
 
-  def closes_at
-    hour_update_params[:text].split(" ")[2]
-  end
+    def opens_at
+      hour_update_params[:text].split(' ')[1]
+    end
 
-  def verify_api_token
-    hour_update_params[:token] == ENV["SLACK_TOKEN"]
+    def closes_at
+      hour_update_params[:text].split(' ')[2]
+    end
   end
 end
