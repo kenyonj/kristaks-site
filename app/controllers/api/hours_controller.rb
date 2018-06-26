@@ -7,28 +7,34 @@ module Api
 
     def create
       if list_requested?
-        render json: {
-          text: hours_list_text
-        }.to_json
+        render json: updated_hours_json_response(
+          text: 'Here are the current hours:'
+        )
       else
         hour.update_times(closes_at: closes_at, opens_at: opens_at)
 
-        render json: {
-          text: update_hours_text
-        }
+        render json: updated_hours_json_response(
+          text: "#{user_name} just updated the hours for #{day}."
+        )
       end
     end
 
     private
 
-    def list_requested?
-      hour_update_params[:text] == 'list'
+    def updated_hours_json_response(text:)
+      {
+        response_type: 'in_channel',
+        text: text,
+        attachments: [
+          {
+            text: hours_list_text
+          }
+        ]
+      }
     end
 
-    def update_hours_text
-      "You just updated #{day}'s hours.\n"\
-      "Opening at #{hour.opening_time_friendly} "\
-      "and closing at #{hour.closing_time_friendly}."
+    def list_requested?
+      hour_update_params[:text] == 'list'
     end
 
     def hours_list_text
@@ -52,8 +58,13 @@ module Api
     def hour_update_params
       params.permit(
         :token,
-        :text
+        :text,
+        :user_name
       )
+    end
+
+    def user_name
+      hour_update_params[:user_name]
     end
 
     def day
